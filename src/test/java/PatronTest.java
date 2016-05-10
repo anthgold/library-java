@@ -12,5 +12,10 @@ public class PatronTest {
     assertEquals(true, myPatron instanceof Patron);
   }
 
+  @Test
+  public void getName_patronInstantiatesWithName_String() {
+    Patron myPatron = new Patron("A Tale of Two Cities");
+    assertEquals("A Tale of Two Cities", myPatron.getName());
+  }
 
 }
