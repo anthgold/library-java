@@ -58,9 +58,7 @@ public class BookTest {
     int myBookId = myBook.getId();
     myBook.delete();
     assertEquals(null, Book.find(myBookId));
-  } // this will fail, .find does not exist
-    // also delete
-    // also yes
+  } // also yes
 
   @Test
   public void find_findsBookInDatabase_true() {
@@ -70,25 +68,15 @@ public class BookTest {
     assertTrue(myBook.equals(savedBook));
   }
 
+  @Test
+  public void update_updatesBookTitle_true() {
+    Book myBook = new Book("Kama Smurphta", 1);
+    myBook.save();
+    myBook.update("Pants I Have Worn", 1);
+    assertEquals("Pants I Have Worn", Book.find(myBook.getId()).getTitle());
+  }
 
 /*
-
-@Test
-public void update_updatesTaskDescription_true() {
-  Task myTask = new Task("Mow the lawn");
-  myTask.save();
-  myTask.update("Take a nap");
-  assertEquals("Take a nap", Task.find(myTask.getId()).getDescription());
-}
-
-@Test
-public void delete_deletesTask_true() {
-  Task myTask = new Task("Mow the lawn");
-  myTask.save();
-  int myTaskId = myTask.getId();
-  myTask.delete();
-  assertEquals(null, Task.find(myTaskId));
-}
 
 @Test
 public void addCategory_addsCategoryToTask_true() {
