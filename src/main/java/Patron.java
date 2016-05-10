@@ -10,6 +10,10 @@ public class Patron {
     this.name = name;
   }
 
+  public String getName() {
+    return name;
+  }
+
   // public void save() {
   //   try(Connection con = DB.sql2o.open()) {
   //     String sql = "INSERT INTO patrons(name) VALUES (:name)";
