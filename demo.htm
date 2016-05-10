@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://ondras.zarovi.cz/sql/demo/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>WWW SQL Designer</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1">
+	
+	<link rel="stylesheet" type="text/css" href="./demo_files/style.css" media="all">     
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="styles/ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="styles/ie7.css" /><![endif]-->
+	<link rel="stylesheet" href="./demo_files/print.css" type="text/css" media="print">
+	<script type="text/javascript" src="./demo_files/dropbox.min.js"></script>
+
+	<script src="./demo_files/oz.js"></script>
+	<script src="./demo_files/config.js"></script>
+	<script src="./demo_files/globals.js"></script>
+	<script src="./demo_files/visual.js"></script>
+	<script src="./demo_files/row.js"></script>
+	<script src="./demo_files/table.js"></script>
+	<script src="./demo_files/relation.js"></script>
+	<script src="./demo_files/key.js"></script>
+	<script src="./demo_files/rubberband.js"></script>
+	<script src="./demo_files/map.js"></script>
+	<script src="./demo_files/toggle.js"></script>
+	<script src="./demo_files/io.js"></script>
+	<script src="./demo_files/tablemanager.js"></script>
+	<script src="./demo_files/rowmanager.js"></script>
+	<script src="./demo_files/keymanager.js"></script>
+	<script src="./demo_files/window.js"></script>
+	<script src="./demo_files/options.js"></script>
+	<script src="./demo_files/wwwsqldesigner.js"></script>
+
+    <link rel="shortcut icon" href="http://ondras.zarovi.cz/favicon.ico" type="image/x-icon">
+</head>
+
+<body style="visibility: visible;">
+	<div id="area" class=""><svg width="2000" height="2000"><path stroke="#080" stroke-width="2" fill="none" d="M 443 198 C 497 198 497 305 551 305"></path><path stroke="#000" stroke-width="2" fill="none" d="M 679 282 C 759 282 760 186 840 186"></path><path stroke="#008" stroke-width="2" fill="none" d="M 141 153 C 112 153 112 296 127 296"></path><path stroke="#080" stroke-width="2" fill="none" d="M 286 273 C 314 273 314 198 342 198"></path><path stroke="#080" stroke-width="2" fill="none" d="M 443 198 C 500 198 501 535 558 535"></path><path stroke="#000" stroke-width="2" fill="none" d="M 661 558 C 750 558 751 186 840 186"></path></svg><div class="table" style="z-index: 4; left: 342px; top: 164px;"><table><thead><tr><td class="title" colspan="2" title="">books</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">title</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">copies</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 2; left: 840px; top: 152px;"><table><thead><tr><td class="title" colspan="2" title="">patrons</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 5; left: 141px; top: 119px;"><table><thead><tr><td class="title" colspan="2" title="">authors</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 1; left: 551px; top: 225px;"><table><thead><tr><td class="title" colspan="2" title="">checkouts</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">patron_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">book_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(200, 255, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">due_date</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 6; left: 127px; top: 216px;"><table><thead><tr><td class="title" colspan="2" title="">books_authors</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">book_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">author_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 3; left: 558px; top: 478px;"><table><thead><tr><td class="title" colspan="2" title="">copies</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">book_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">patron_id</div></td><td class="typehint"></td></tr></tbody></table></div></div>
+	<div id="controls" style="z-index: 11;">
+		<div id="bar">
+			<div id="toggle" class="on"></div>
+			<input type="button" id="saveload" value="Save / Load">
+
+			<hr>
+
+			<input type="button" id="addtable" value="Add table">
+			<input type="button" id="edittable" value="Edit table" disabled="">
+			<input type="button" id="tablekeys" value="Keys" disabled="">
+			<input type="button" id="removetable" value="Remove table" disabled="">
+			<input type="button" id="aligntables" value="Align tables">
+			<input type="button" id="cleartables" value="Clear tables">
+		
+			<hr>
+		
+			<input type="button" id="addrow" value="Add field" disabled="">
+			<input type="button" id="editrow" value="Edit field" disabled="">
+			<input type="button" id="uprow" class="small" value="Up" disabled=""><input type="button" id="downrow" class="small" value="Down" disabled="">
+			<input type="button" id="foreigncreate" value="Create foreign key" disabled="">
+			<input type="button" id="foreignconnect" value="Connect foreign key" disabled="">
+			<input type="button" id="foreigndisconnect" value="Remove foreign key" disabled="">
+			<input type="button" id="removerow" value="Remove field" disabled="">
+		
+			<hr>
+		
+			<input type="button" id="options" value="Options">
+			<a href="https://github.com/ondras/wwwsqldesigner/wiki" target="_blank"><input type="button" id="docs" value="Documentation"></a>
+		</div>
+	
+		<div id="rubberband" style="left: 4px; top: 6px; width: 956px; height: 186px; visibility: visible;"></div>
+
+		<div id="minimap"><div class="port" style="z-index: 1; width: 58px; height: 54px; left: 0px; top: 0px;"></div><div class="mini" style="width: 6px; height: 6px; left: 28px; top: 11px;"></div><div class="mini" style="width: 6px; height: 4px; left: 42px; top: 8px;"></div><div class="mini" style="width: 5px; height: 5px; left: 28px; top: 24px;"></div><div class="mini" style="width: 5px; height: 5px; left: 17px; top: 8px;"></div><div class="mini" style="width: 6px; height: 4px; left: 7px; top: 6px;"></div><div class="mini" style="width: 8px; height: 5px; left: 6px; top: 11px;"></div></div>
+	
+		<div id="background" style="width: 1232px; height: 1164px; left: 0px; top: 0px; visibility: hidden;"></div>
+	
+		<div id="window" style="left: 430px; top: 488px; visibility: hidden;">
+			<div id="windowtitle"><img id="throbber" src="./demo_files/throbber.gif" alt="Please wait..." title="Please wait..." style="visibility: hidden;">Edit table</div>
+			<div id="windowcontent"><div id="table">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<label id="tablenamelabel" for="tablename">Name</label>
+					</td>
+					<td>
+						<input id="tablename" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="tablecommentlabel" for="tablecomment">Comment</label> 
+					</td>
+					<td>
+						<textarea rows="5" cols="40" id="tablecomment"></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div></div>
+			<input type="button" id="windowok" value="OK">
+			<input type="button" id="windowcancel" value="Cancel">
+		</div>
+	</div> <!-- #controls -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+		var d = new SQL.Designer();
+	</script>
+	
+	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./demo_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-383250-9");
+pageTracker._trackPageview();
+} catch(err) {}</script>	
+
+
+
+</body></html>
