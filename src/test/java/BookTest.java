@@ -7,9 +7,15 @@ public class BookTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
-  public void book_bookInstantiatesCorrectly_true() {
+  public void Book_instantiatesCorrectly_true() {
     Book myBook = new Book("Taming of the Shrew");
     assertEquals(true, myBook instanceof Book);
+  }
+
+  @Test
+  public void getTitle_bookInstantiatesWithTitle_String() {
+    Book myBook = new Book("A Tale of Two Cities");
+    assertEquals("A Tale of Two Cities", myBook.getTitle());
   }
 
 }
