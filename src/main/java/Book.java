@@ -5,13 +5,19 @@ import org.sql2o.*;
 public class Book {
   private int id;
   private String title;
+  private int copies;
 
-  public Book(String title) {
+  public Book(String title, int copies) {
     this.title = title;
+    this.copies = copies;
   }
 
   public String getTitle() {
     return title;
+  }
+
+  public int getCopies() {
+    return copies;
   }
 
 /*

@@ -8,15 +8,22 @@ public class BookTest {
 
   @Test
   public void Book_instantiatesCorrectly_true() {
-    Book myBook = new Book("Taming of the Shrew");
+    Book myBook = new Book("Taming of the Shrew", 1);
     assertEquals(true, myBook instanceof Book);
   }
 
   @Test
   public void getTitle_bookInstantiatesWithTitle_String() {
-    Book myBook = new Book("A Tale of Two Cities");
+    Book myBook = new Book("A Tale of Two Cities", 3);
     assertEquals("A Tale of Two Cities", myBook.getTitle());
   }
+
+  @Test
+  public void getCopies_bookInstantiatesWithCopies_int() {
+    Book myBook = new Book("A Tale of Two Cities", 2);
+    assertEquals(myBook.getCopies(), 2);
+  }
+
 
 /*
 
