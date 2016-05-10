@@ -24,6 +24,12 @@ public class BookTest {
     assertEquals(myBook.getCopies(), 2);
   }
 
+  @Test
+  public void save_savesObjectIntoDB_true() {
+    Book myBook = new Book("Moby Dick", 3);
+    myBook.save();
+    assertTrue(Book.all().get(0).equals(myBook));
+  }
 
 /*
 
@@ -39,12 +45,7 @@ public void equals_returnsTrueIfDescriptionsAretheSame_true() {
   assertTrue(firstTask.equals(secondTask));
 }
 
-@Test
-public void save_savesObjectIntoDB_true() {
-  Task myTask = new Task("Mow the lawn");
-  myTask.save();
-  assertTrue(Task.all().get(0).equals(myTask));
-}
+
 
 @Test
 public void save_assignsIdToObject_int() {
