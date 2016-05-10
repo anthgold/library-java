@@ -20,38 +20,44 @@ public class Book {
     return copies;
   }
 
+  public int getId() {
+    return id;
+  }
+
+  @Override
+  public boolean equals(Object otherBook){
+    if (!(otherBook instanceof Book)) {
+      return false;
+    } else {
+      Book newBook = (Book) otherBook;
+      return this.getTitle().equals(newBook.getTitle()) &&
+             this.getCopies() == newBook.getCopies() &&
+             this.getId() == newBook.getId();
+    }
+  }
+
+  public static List<Book> all() {
+    String sql = "SELECT * FROM books";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Book.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO books(title, copies) VALUES (:title , :copies)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("title", this.title)
+        .addParameter("copies", this.copies)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
+
 /*
-public int getId() {
-  return id;
-}
 
-public static List<Task> all() {
-  String sql = "SELECT id, description FROM tasks";
-  try(Connection con = DB.sql2o.open()) {
-    return con.createQuery(sql).executeAndFetch(Task.class);
-  }
-}
 
-@Override
-public boolean equals(Object otherTask){
-  if (!(otherTask instanceof Task)) {
-    return false;
-  } else {
-    Task newTask = (Task) otherTask;
-    return this.getDescription().equals(newTask.getDescription()) &&
-           this.getId() == newTask.getId();
-  }
-}
-
-public void save() {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "INSERT INTO tasks(description) VALUES (:description)";
-    this.id = (int) con.createQuery(sql, true)
-      .addParameter("description", this.description)
-      .executeUpdate()
-      .getKey();
-  }
-}
 
 public static Task find(int id) {
   try(Connection con = DB.sql2o.open()) {
