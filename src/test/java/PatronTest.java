@@ -14,8 +14,15 @@ public class PatronTest {
 
   @Test
   public void getName_patronInstantiatesWithName_String() {
-    Patron myPatron = new Patron("A Tale of Two Cities");
-    assertEquals("A Tale of Two Cities", myPatron.getName());
+    Patron myPatron = new Patron("Bobcat Goldthwait");
+    assertEquals("Bobcat Goldthwait", myPatron.getName());
+  }
+
+  @Test
+  public void save_savesObjectIntoDB_true() {
+    Patron myPatron = new Patron("Bobcat Goldthwait");
+    myPatron.save();
+    assertTrue(Patron.all().get(0).equals(myPatron));
   }
 
 }
