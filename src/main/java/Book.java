@@ -78,21 +78,23 @@ public class Book {
     }
   }
 
+  public void update(String newTitle, int newCopies) {
+    try(Connection con = DB.sql2o.open()) {
+      String titleUpdate = "UPDATE books SET title = :title WHERE id = :id";
+      con.createQuery(titleUpdate)
+        .addParameter("title", newTitle)
+        .addParameter("id", this.id) // if buggy /\ from id
+        .executeUpdate();
 
-
+      String copiesUpdate = "UPDATE books SET copies = :copies WHERE id = :id";
+      con.createQuery(copiesUpdate)
+        .addParameter("copies", newCopies)
+        .addParameter("id", this.id) // if buggy /\ from id
+        .executeUpdate();
+    }
+  }
 
 /*
-
-
-public void update(String newDescription) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE tasks SET description = :description WHERE id = :id";
-    con.createQuery(sql)
-      .addParameter("description", newDescription)
-      .addParameter("id", this.id) // if buggy /\ from id
-      .executeUpdate();
-  }
-}
 
 public void addCategory(Category category) {
   try(Connection con = DB.sql2o.open()) {
