@@ -31,38 +31,47 @@ public class BookTest {
     assertTrue(Book.all().get(0).equals(myBook));
   }
 
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Book.all().size());
+  }
+
+  @Test
+  public void equals_returnsTrueIfTitlesAretheSame_true() {
+    Book firstBook = new Book("Necronomicon", 2);
+    Book secondBook = new Book("Necronomicon", 2);
+    assertTrue(firstBook.equals(secondBook));
+  }
+
+  @Test
+  public void save_assignsIdToObject_int() {
+    Book myBook = new Book("Necronomicon", 666);
+    myBook.save();
+    Book savedBook = Book.all().get(0);
+    assertEquals(myBook.getId(), savedBook.getId());
+  }
+
+  @Test
+  public void delete_deletesBook_true() {
+    Book myBook = new Book("Necronomicon", 666);
+    myBook.save();
+    int myBookId = myBook.getId();
+    myBook.delete();
+    assertEquals(null, Book.find(myBookId));
+  } // this will fail, .find does not exist
+    // also delete
+    // also yes
+
+  @Test
+  public void find_findsBookInDatabase_true() {
+    Book myBook = new Book("Necronomicon", 666);
+    myBook.save();
+    Book savedBook = Book.find(myBook.getId());
+    assertTrue(myBook.equals(savedBook));
+  }
+
+
 /*
-
-@Test
-public void all_emptyAtFirst_0() {
-  assertEquals(0, Task.all().size());
-}
-
-@Test
-public void equals_returnsTrueIfDescriptionsAretheSame_true() {
-  Task firstTask = new Task("Mow the lawn");
-  Task secondTask = new Task("Mow the lawn");
-  assertTrue(firstTask.equals(secondTask));
-}
-
-
-
-@Test
-public void save_assignsIdToObject_int() {
-  Task myTask = new Task("Mow the lawn");
-  myTask.save();
-  Task savedTask = Task.all().get(0);
-  assertEquals(myTask.getId(), savedTask.getId());
-}
-
-@Test
-public void find_findsTaskInDatabase_true() {
-  Task myTask = new Task("Mow the lawn");
-  myTask.save();
-  Task savedTask = Task.find(myTask.getId());
-  assertTrue(myTask.equals(savedTask));
-}
-
 
 @Test
 public void update_updatesTaskDescription_true() {

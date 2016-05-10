@@ -54,20 +54,35 @@ public class Book {
     }
   }
 
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM books WHERE id = :id;";
+        con.createQuery(deleteQuery)
+          .addParameter("id", this.getId())
+          .executeUpdate();
+
+      // String joinDeleteQuery = "DELETE FROM tasks_categories WHERE task_id = :taskId";
+      //   con.createQuery(joinDeleteQuery)
+      //     .addParameter("taskId", this.getId())
+      //     .executeUpdate();
+      }
+    }
+
+  public static Book find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM books WHERE id=:id";
+      Book book = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Book.class);
+      return book;
+    }
+  }
+
+
+
 
 /*
 
-
-
-public static Task find(int id) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM tasks where id=:id";
-    Task task = con.createQuery(sql)
-      .addParameter("id", id)
-      .executeAndFetchFirst(Task.class);
-    return task;
-  }
-}
 
 public void update(String newDescription) {
   try(Connection con = DB.sql2o.open()) {
@@ -108,20 +123,6 @@ public List<Category> getCategories() {
     return categories;
   }
 }
-
-public void delete() {
-  try(Connection con = DB.sql2o.open()) {
-    String deleteQuery = "DELETE FROM tasks WHERE id = :id;";
-      con.createQuery(deleteQuery)
-        .addParameter("id", this.getId())
-        .executeUpdate();
-
-    String joinDeleteQuery = "DELETE FROM tasks_categories WHERE task_id = :taskId";
-      con.createQuery(joinDeleteQuery)
-        .addParameter("taskId", this.getId())
-        .executeUpdate();
-    }
-  }
 
 */
 
