@@ -16,7 +16,7 @@ protected void after() {
     String deleteBooksAuthorsQuery = "DELETE FROM books_authors *;";
     String deleteCheckoutsQuery = "DELETE FROM checkouts *;";
     String deleteCopiesQuery = "DELETE FROM copies *;";
-    String deleteBooksPatronQuery = "DELETE FROM patron *;";
+    String deleteBooksPatronQuery = "DELETE FROM patrons *;";
     con.createQuery(deleteAuthorsQuery).executeUpdate();
     con.createQuery(deleteBooksQuery).executeUpdate();
     con.createQuery(deleteBooksAuthorsQuery).executeUpdate();
